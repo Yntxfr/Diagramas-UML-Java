@@ -1,5 +1,5 @@
 // Nombre alumno: Alex Fernandez
-// Mini Ejercicios Java
+// Convertir Diagramas UML a Código Java
 
 
 
@@ -23,13 +23,73 @@ Si terminas el proyecto referente al ejercicio elegido, puedes elegir otro de lo
  */
 
 
-import java.util.Scanner;  // Importar la clase Scanner
+import java.util.*;  //Para importar todas las librerias de java.util
 
 public class Main {
-    public static void main(String[] args) {
-        int x = 5;
-        int y = 3;
+    /* public static void main(String[] args) {
+        // Creación de nuevo usuario
+        Usuario usuario = new Usuario();
+    } */
 
+
+    public static void main(String[] args) {
+        // Usuarios
+        Usuario usuario1 = new Usuario("Yenot", "Mandylorian", 121221, "yenot@yenot.com", 676867696, "LesYenotsRolling11", "Master User", "Planet Yenot avenue 111", "aaa");
+
+        Usuario usuario2 = new Usuario("Yenotina", "Osgradskaya", 131331, "yenotina@yenot.com", 877865864, "LaYenotinaDancin22", "Commander User", "Planet Yenot plaza 222", "bbb");
+
+        System.out.println("Lista de usuarios registrados: ");
+        for (Usuario usuario : Usuario.getUsuario()) {
+            System.out.println(usuario.getNombre() + " " + usuario.getApellido() + ", " + usuario.getCorreo());
+        }
+
+        // Admins
+        Admin admin1 = new Admin("MrAdmin", "Administrator", 1111, "admin1@leyenots.com", "AdminYenotRolling12", "Logistics Admin", "Planet Yenot avenue 333");
+
+        System.out.println("\n" + "Lista de administradores registrados: ");
+        for (Admin admin : Admin.getAdmin()) {
+            System.out.print(admin.getNombre() + " " + admin.getApellido() + ", " + admin.getRol() + "\n");
+        }
+
+        // Productos
+        Inventario inventario = new Inventario();
+
+        System.out.println("\n" + "Lista de productos registrados: ");
+
+        inventario.addProducto(new Producto("Manzana", 121314, "Frutas", 0.99, 5, "26/04/2024", "06/07/2024"));
+
+        inventario.addProducto(new Producto("Peras", 131416, "Frutas", 0.75, 5, "26/04/2024", "06/07/2024"));
+
+        inventario.addProducto(new Producto("Brocoli", 141618, "Verduras", 1.80, 10, "29/04/2024", "05/06/2024"));
+
+        for (Producto producto : inventario.getProductos()) {
+            System.out.println(producto.getNombre() + ", " + producto.getCategoria() + ", " + producto.getPrecio());
+        }
+
+        // Notificacion
+        Notificacion notificacion1 = new Notificacion("Has seleccionado este producto!", "29/04/2024", 125689);
+
+        Notificacion notificacion2 = new Notificacion("Este producto es muy bueno!", "29/04/2024", 125689);
+
+        String categoria = Producto.getCategoria();
+
+        System.out.println("\n" + "Tienes una nueva notificación: ");
+        switch (categoria) {
+            case "Frutas":
+                System.out.println(notificacion1.getCuerpoNotificacion());
+                break;
+            case "Verduras":
+                System.out.println(notificacion2.getCuerpoNotificacion());
+                break;
+            default:
+                System.out.println("No hay productos seleccionados!");
+        }
+
+
+
+        // Iniciar sesion
 
     }
+
+
 }
